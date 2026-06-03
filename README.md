@@ -1,4 +1,4 @@
-# Bhasme Math Coaching Academy — Website
+# Bhasme Sir Coaching Center — Website
 
 A single-page, mobile-first website for **Math's Coaching by Bhasme Sir**.
 Built with plain HTML, CSS and JavaScript — no build step, no dependencies.
