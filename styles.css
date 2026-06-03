@@ -225,6 +225,10 @@ body.lang-mr .brand-text strong {
 .contact-list a:hover { color: var(--orange); }
 .map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--line); }
 .map iframe { width: 100%; height: 240px; border: 0; display: block; }
+.qr-card { margin-top: 20px; display: flex; align-items: center; gap: 16px; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); background: #fff; }
+.qr-card img { width: 110px; height: 110px; flex-shrink: 0; border-radius: 10px; }
+.qr-card p { font-weight: 600; color: var(--navy); margin: 0; }
+@media (max-width: 480px) { .qr-card { flex-direction: column; text-align: center; } }
 
 /* Footer */
 .footer { background: var(--navy-dark); color: #cbd6e2; padding: 40px 0; }

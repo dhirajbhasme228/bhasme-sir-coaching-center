@@ -108,6 +108,7 @@
       "ci.startVal": "1 July 2026 — Admissions Open",
       "ci.batches": "Batches",
       "ci.batchesVal": "Class 8th, 9th & 10th Maths (SSC)",
+      "ci.qr": "Scan to open &amp; share our website",
       "footer.copy": "Bhasme Sir Coaching Center. All rights reserved."
     },
 
@@ -216,6 +217,7 @@
       "ci.startVal": "१ जुलै २०२६ — प्रवेश सुरू",
       "ci.batches": "बॅच",
       "ci.batchesVal": "इयत्ता ८वी, ९वी व १०वी गणित (SSC)",
+      "ci.qr": "वेबसाइट उघडण्यासाठी व शेअर करण्यासाठी स्कॅन करा",
       "footer.copy": "भस्मे सर कोचिंग सेंटर. सर्व हक्क राखीव."
     }
   };
