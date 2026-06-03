@@ -296,29 +296,47 @@
     note.className = "form-note " + (type || "");
   }
 
+  /* WhatsApp number that enquiries are sent to (country code + number, digits only). */
+  var WHATSAPP_NUMBER = "917058505983";
+
   if (form) {
     form.addEventListener("submit", function (e) {
-      var notConfigured = form.action.indexOf("your-form-id") !== -1;
+      e.preventDefault();
       var isMr = document.documentElement.lang === "mr";
       var name = (form.elements.name && form.elements.name.value || "").trim();
       var phone = (form.elements.phone && form.elements.phone.value || "").trim();
 
       if (!name || !phone) {
-        e.preventDefault();
         setNote(isMr ? "कृपया तुमचे नाव व फोन नंबर भरा." : "Please enter your name and phone number.", "err");
         return;
       }
-      if (notConfigured) {
-        e.preventDefault();
-        setNote(
-          isMr
-            ? "फॉर्म अद्याप सेट केलेला नाही. कृपया कॉल/व्हॉट्सॲप करा (README पाहा)."
-            : "Form endpoint not set up yet. Please call/WhatsApp us, or configure Formspree (see README).",
-          "err"
-        );
-        return;
+
+      var courseSel = form.elements.course;
+      var course = "";
+      if (courseSel && courseSel.options && courseSel.selectedIndex >= 0) {
+        course = (courseSel.options[courseSel.selectedIndex].text || "").trim();
       }
-      setNote(isMr ? "तुमची चौकशी पाठवत आहोत…" : "Sending your enquiry…", "ok");
+      var message = (form.elements.message && form.elements.message.value || "").trim();
+
+      var lines = isMr
+        ? [
+            "भस्मे सर कोचिंग सेंटर वेबसाइटवरून नवीन चौकशी:",
+            "नाव: " + name,
+            "फोन: " + phone,
+            "इच्छुक वर्ग: " + (course || "-"),
+            "संदेश: " + (message || "-")
+          ]
+        : [
+            "New enquiry from Bhasme Sir Coaching Center website:",
+            "Name: " + name,
+            "Phone: " + phone,
+            "Interested in: " + (course || "-"),
+            "Message: " + (message || "-")
+          ];
+
+      var waUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
+      window.open(waUrl, "_blank", "noopener");
+      setNote(isMr ? "व्हॉट्सॲप उघडत आहोत… कृपया संदेश पाठवा." : "Opening WhatsApp… please tap send.", "ok");
     });
   }
 })();
